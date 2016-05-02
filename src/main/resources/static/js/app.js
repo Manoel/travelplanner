@@ -16,7 +16,7 @@
         };
 
         rootCtrl.isMenuHomeActive = function() {
-            return rootCtrl.isMenuActive('/home');
+            return rootCtrl.isMenuActive('/');
         };
 
         rootCtrl.isMenuTripActive = function() {
@@ -51,6 +51,10 @@
 					}).when('/createaccount', {
 						templateUrl : 'js/user/user.create.html',
 						controller : 'CreateUserController',
+						controllerAs : 'controller'
+					}).when('/trip', {
+						templateUrl : 'js/trip/trip.list.html',
+						controller : 'TripListController',
 						controllerAs : 'controller'
 					}).otherwise('/');
 

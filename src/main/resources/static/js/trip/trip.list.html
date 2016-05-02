@@ -23,7 +23,12 @@
                 <div class="col-xs-12">
                     <button type="button" class="btn btn-info btn-sm" ng-click="controller.search()">Search
                     </button>
-                    <a href="#/newtrip" class="btn btn-primary">New Trip</a>
+                    <button type="button" class="btn btn-info btn-sm"
+                            ng-click="controller.clearSearch()">Clear Search
+                    </button>
+                    <button type="button" class="btn btn-info btn-sm" ng-click="controller.openModal()">New
+                        Trip
+                    </button>
                 </div>
             </div>
         </form>
@@ -33,26 +38,31 @@
         {{controller.totalRecords()}} trip(s) found
     </div>
 
-    <div class="col-xs-10" ng-show="!controller.searchEmpty()">
+    <div class="col-xs-10" ng-show="!controller.isSearchEmpty()">
 
         <div class="table-responsive">
             <table class="table table-striped">
 
                 <tr>
+                    <th>Destination</th>
                     <th>Start</th>
                     <th>End</th>
-                    <th>Destination</th>
                     <th>Days Count</th>
                     <th>Actions</th>
                 </tr>
 
 
-                <tr ng-repeat="trip in controller.getRecords()">
+                <tr ng-repeat="trip in controller.getEntities()">
+                    <td>{{trip.destination}}</td>
                     <td>{{trip.start}}</td>
                     <td>{{trip.end}}</td>
-                    <td>{{trip.destination}}</td>
                     <td>{{trip.daysCount}}</td>
-                    <td>TODO ACTIONS</td>
+                    <td>
+                    	<button type="button" class="btn btn-info btn-sm"
+                                ng-click="controller.openModalToAlter(trip)">Alter</button>
+                        <button type="button" class="btn btn-info btn-sm"
+                                ng-click="controller.abrirModalToDelete(trip)">Delete</button>
+                    </td>
                 </tr>
 
             </table>

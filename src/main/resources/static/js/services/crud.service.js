@@ -44,8 +44,8 @@
         this.entity = e;
       },
 
-      getEntitys: function() {
-        return this.entitys;
+      getEntities: function() {
+        return this.entities;
       },
 
       clearFilter: function() {
@@ -61,6 +61,10 @@
         this.getPagination().currentPage = 1;
         this.getEntitiesWithPagination();
       },
+      
+      isSearchEmpty: function() {
+    	  return this.getEntities().length == 0;
+      },
 
       getFilter: function() {
         return this.filter;
@@ -70,7 +74,7 @@
         return this.pagination;
       },
 
-      obterEntitys: function(filter, not, otherFilter) {
+      getEntitiesWithoutPagination: function(filter, not, otherFilter) {
         return this.resource.get(
           this.getQueryParameters(1, 999999999, filter))
           .$promise.then(function(result) {

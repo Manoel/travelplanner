@@ -4,7 +4,7 @@
 	
 	angular.module('travelplanner').controller('CreateUserController', CreateUserController);
 	
-	CreateUserController.$inject = [];
+	CreateUserController.$inject = ['$rootScope', '$http', '$location'];
 	
 	function CreateUserController($rootScope, $http, $location) {
 
