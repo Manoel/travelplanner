@@ -23,11 +23,42 @@
 		<java.version>1.8</java.version>
 	</properties>
 
+	<repositories>
+		<repository>
+			<id>spring-milestone-repository</id>
+			<name>Spring milestone repository</name>
+			<url>http://repo.spring.io/milestone</url>
+		</repository>
+	</repositories>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Brixton.RC1</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
 	<dependencies>
+
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
+			<groupId>org.webjars</groupId>
+			<artifactId>bootstrap</artifactId>
+			<version>3.3.5</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-zuul</artifactId>
+		</dependency>
+
+		<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-security</artifactId> 
+			</dependency> -->
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -111,8 +142,37 @@
 					<dependency>
 						<groupId>org.webjars</groupId>
 						<artifactId>bootstrap</artifactId>
-						<version>3.2.0</version>
+						<version>3.3.5</version>
 					</dependency>
+					<dependency>
+						<groupId>org.webjars</groupId>
+						<artifactId>angular-ui-bootstrap</artifactId>
+						<version>0.14.3</version>
+					</dependency>
+					<dependency>
+						<groupId>org.webjars.bower</groupId>
+						<artifactId>angularjs-toaster</artifactId>
+						<version>0.4.18</version>
+					</dependency>
+
+					<dependency>
+						<groupId>org.webjars.bower</groupId>
+						<artifactId>angular-ui-mask</artifactId>
+						<version>1.6.1</version>
+					</dependency>
+
+					<dependency>
+						<groupId>org.webjars</groupId>
+						<artifactId>angular-loading-bar</artifactId>
+						<version>0.8.0</version>
+					</dependency>
+
+					<dependency>
+						<groupId>org.webjars</groupId>
+						<artifactId>font-awesome</artifactId>
+						<version>4.4.0</version>
+					</dependency>
+
 				</dependencies>
 			</plugin>
 		</plugins>

@@ -1,0 +1,63 @@
+<div class="row row-content">
+    <div class="col-xs-push-2 col-xs-10">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <div class="col-xs-5">
+                    <input id="destination" placeholder="Destination" type="text" class="form-control"
+                           ng-model="controller.getFilter().destination">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-5">
+                    <input id="start" placeholder="Start Date" type="date" class="form-control"
+                           ng-model="controller.getFilter().start">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-5">
+                    <input id="end" placeholder="End Date" type="date" class="form-control"
+                           ng-model="controller.getFilter().end">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <button type="button" class="btn btn-info btn-sm" ng-click="controller.search()">Search
+                    </button>
+                    <a href="#/newtrip" class="btn btn-primary">New Trip</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+    <div class="col-xs-10">
+        {{controller.totalRecords()}} trip(s) found
+    </div>
+
+    <div class="col-xs-10" ng-show="!controller.searchEmpty()">
+
+        <div class="table-responsive">
+            <table class="table table-striped">
+
+                <tr>
+                    <th>Start</th>
+                    <th>End</th>
+                    <th>Destination</th>
+                    <th>Days Count</th>
+                    <th>Actions</th>
+                </tr>
+
+
+                <tr ng-repeat="trip in controller.getRecords()">
+                    <td>{{trip.start}}</td>
+                    <td>{{trip.end}}</td>
+                    <td>{{trip.destination}}</td>
+                    <td>{{trip.daysCount}}</td>
+                    <td>TODO ACTIONS</td>
+                </tr>
+
+            </table>
+
+        </div>
+    </div>
+    
+</div>
