@@ -6,6 +6,7 @@
 		<css>webjar:angularjs-toaster/0.4.18/toaster.css</css>
  		<css>webjar:font-awesome/4.4.0/font-awesome.less</css>
 		<css>file:${project.basedir}/src/main/wro/main.less</css>
+		<js>webjar:moment/2.13.0/moment.js</js>
 		<js>webjar:jquery/2.1.1/jquery.min.js</js>
 		<js>webjar:angularjs/1.4.6/angular.min.js</js>
 		<js>webjar:angularjs/1.4.6/angular-route.min.js</js>

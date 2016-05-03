@@ -54,13 +54,8 @@
 			});
 
 			tripService.setOperation('Insert');
-
-			$uibModal.open({
-				animation : true,
-				templateUrl : '/js/trip/trip.modal.html',
-				controller : 'TripModalController',
-				size : size
-			});
+			
+			openModal($uibModal);
 		};
 		
 		self.openModalToAlter = function(entity) {
@@ -74,6 +69,14 @@
             tripService.setEntity(entity);
             openModal($uibModal);
         };
+        
+        var openModal = function(uibModal) {
+            uibModal.open({
+              animation: true,
+              templateUrl: '/js/trip/trip.modal.html',
+              controller: 'TripModalController'
+            });
+          };
 
 	}
 

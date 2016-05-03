@@ -65,5 +65,33 @@
 					$http.get('resource/').then(function(response) {
 						self.greeting = response.data;
 					})
-				}).run(run);
+				}).filter('stringToDate', function () {
+				    return function (input) {
+				        if (!input)
+				            return null;
+
+				        var date = moment(input);
+				        return date.isValid() ? date.toDate() : null;
+				    };
+				}).directive('jsonDate', function($filter) {
+				      return  {
+				          restrict: 'A',
+				          require: 'ngModel',
+				          link: function (scope, element, attrs, ngModel) {
+
+				             //format text going to user (model to view)
+				             ngModel.$formatters.push(function(value) {
+				                var date = $filter('stringToDate')(value);
+				                return date;
+				             });
+
+				             //format text from the user (view to model)
+				             ngModel.$parsers.push(function(value) {
+				                var date = new Date(value);
+				                if (!isNaN( date.getTime())) { 
+				                   return moment(date).format();
+				                }
+				             });
+				         }
+				      }}).run(run);
 }());

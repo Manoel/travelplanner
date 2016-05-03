@@ -3,7 +3,11 @@
 	'use strict';
 	
 	var tripService = function($resource, CrudService) {
-		var Trip = $resource("/trip");
+		var Trip = $resource("/trip/:tripId", {tripId:'@id'}, {
+		      'update': {
+		        method: 'PUT'
+		      }
+		});
 
         var filter = {'destination': '', 'start': '', 'end': ''};
 

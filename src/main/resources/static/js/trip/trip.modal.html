@@ -1,7 +1,7 @@
 <div class="row row-content">
             <div class="col-xs-12">
                 <div class="modal-header">
-                    <h3 class="modal-title">New Trip</h3>
+                    <h3 class="modal-title">{{getOperation()}} Trip</h3>
                 </div>
                 <form id="newTripForm" name="newTripForm" class="form-horizontal">
                     <div class="modal-body">
@@ -13,7 +13,7 @@
                             <div class="col-xs-5">
                                 <input ng-model="getEntity().destination" class="form-control" type="text" 
                                        placeholder="Type a Destination"
-                                       required>
+                                       ng-disabled="isDelete()" required>
                             </div>
                         </div>
                         <div class="form-group">
@@ -21,7 +21,7 @@
                                 <label class="control-label">Start Date</label>
                             </div>
                             <div class="col-xs-5">
-                                <input ng-model="getEntity().start" class="form-control" type="date" required>
+                                <input ng-model="getEntity().start" class="form-control" type="date" ng-disabled="isDelete()" required json-date>
                             </div>
                         </div>
                         <div class="form-group">
@@ -29,7 +29,7 @@
                                <label class="control-label">End Date</label>
                             </div>
                             <div class="col-xs-5">
-                                <input ng-model="getEntity().end" class="form-control" type="date" required>
+                                <input ng-model="getEntity().end" class="form-control" type="date" ng-disabled="isDelete()" required json-date>
                             </div>
 
                         </div>
@@ -39,7 +39,7 @@
                             </div>
                             <div class="col-xs-8">
                                 <textarea ng-model="getEntity().comment" class="form-control" placeholder="Type something about this trip"
-                                          required></textarea>
+                                          ng-disabled="isDelete()" required></textarea>
                             </div>
 
                         </div>
@@ -47,7 +47,7 @@
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-primary" type="button" ng-click="ok()"
-                                ng-disabled="novaTripForm.$invalid">Confim
+                                ng-disabled="newTripForm.$invalid">Confim
                         </button>
                         <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
                     </div>
