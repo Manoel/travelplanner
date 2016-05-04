@@ -22,7 +22,8 @@
               'destination': trip.destination,
               'start': trip.start,
               'end': trip.end,
-              'comment': trip.comment              
+              'comment': trip.comment,
+              'userId': trip.userId
             });
             
             var op = tripService.getOperation();

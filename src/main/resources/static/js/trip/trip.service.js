@@ -16,7 +16,7 @@
             'start': '',
             'end': '',
             'comment': '',
-            'user': ''
+            'userId': ''
         };
 
         var service = new CrudService(Trip, filter, trip);

@@ -50,7 +50,7 @@
 	            'start': '',
 	            'end': '',
 	            'comment': '',
-	            'user': ''
+	            'userId': ''
 			});
 
 			tripService.setOperation('Insert');

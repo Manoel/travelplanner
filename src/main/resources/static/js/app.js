@@ -70,7 +70,7 @@
 				        if (!input)
 				            return null;
 
-				        var date = moment(input);
+				        var date = moment(input, 'YYYY-MM-DD');
 				        return date.isValid() ? date.toDate() : null;
 				    };
 				}).directive('jsonDate', function($filter) {
@@ -89,7 +89,7 @@
 				             ngModel.$parsers.push(function(value) {
 				                var date = new Date(value);
 				                if (!isNaN( date.getTime())) { 
-				                   return moment(date).format();
+				                   return moment(date).format('YYYY-MM-DD');
 				                }
 				             });
 				         }
